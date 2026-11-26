@@ -1,0 +1,39 @@
+name: relay
+services:
+  app:
+    build: .
+    init: true
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      PORT: 4173
+      RELAY_DATA_DIR: /data
+      RELAY_COORDINATOR_KEY: ${RELAY_COORDINATOR_KEY:?Generate .env first}
+      RELAY_TECH_LEAD_KEY: ${RELAY_TECH_LEAD_KEY:?Generate .env first}
+      RELAY_EMPLOYEE_KEY: ${RELAY_EMPLOYEE_KEY:-}
+      RELAY_HR_KEY: ${RELAY_HR_KEY:-}
+      RELAY_LINE_MANAGER_KEY: ${RELAY_LINE_MANAGER_KEY:-}
+      RELAY_MANAGEMENT_KEY: ${RELAY_MANAGEMENT_KEY:-}
+      RELAY_EMPLOYEE_CASE: ${RELAY_EMPLOYEE_CASE:-ONB-005}
+      RELAY_LINE_MANAGER_NAME: ${RELAY_LINE_MANAGER_NAME:-Luca Gray}
+      RELAY_ACCOUNTS_DIR: /access
+      PUBLIC_ORIGIN: ${PUBLIC_ORIGIN:-}
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-}
+      OLLAMA_URL: ${OLLAMA_URL:-http://host.docker.internal:11434}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+      - "127.0.0.1:${RELAY_PORT:-4173}:4173"
+    volumes:
+      - data:/data
+      - ./access:/access:ro
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+volumes:
+  data: {}

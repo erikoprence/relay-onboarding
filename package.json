@@ -1,0 +1,6 @@
+{
+  "name":"relay-readiness-review","version":"2.1.0","private":true,
+  "description":"Evidence-led onboarding review for the Engineering Albania hackathon",
+  "engines":{"node":">=22.13.0"},
+  "scripts":{"start":"node src/server.mjs","test":"node --test","portable":"node scripts/portable.mjs"}
+}
