@@ -23,6 +23,7 @@
     if(cmd.actorName)event.actorName=cmd.actorName;
     if(cmd.type==='request'){
       requireThat(cmd.role==='Coordinator' && s.phase==='unopened','Only the coordinator can open a new follow-up.');
+      if(cmd.brief!==undefined)event.brief=validateBrief(id,cmd.brief);
       s.task={owner:c.owner,action:c.action,due:date(cmd.due)};
       s.phase='open';
       event.text=c.action+' assigned to '+c.owner+'.';event.due=s.task.due;

@@ -4,7 +4,7 @@
 
 **Question:** Can the coordinator close Eva Stone’s onboarding for Project Orion? E3 documents two outstanding complex scenarios and a technical assessment of Ready with Support. E4 records the line manager’s closure opinion. Relay recommends keeping the case open, shows both sources and creates an owned technical review. The technical lead records the later observation. A reviewer may retain support or validate independent execution for the agreed scope.
 
-The primary user is the PMO coordinator, who can take action immediately. The technical owner is the second user. Employees, HR, management and line managers contribute context in the brief. Broad dashboards, general-purpose chat and email integrations fall outside this prototype.
+The coordinator assigns follow-ups. The technical owner validates readiness. Employees submit check-ins, HR confirms starts, line managers record blockers and management tracks interventions. The prototype simulates inbox delivery and access to project folders.
 
 ## Components and ownership
 
@@ -49,7 +49,7 @@ Saved build-time examples use the same validator as live generation. The interfa
 
 | Type | Required fields beyond role and revision | Effect |
 | --- | --- | --- |
-| request | due | Creates one open task with the case policy’s owner and action. |
+| request | due, optional brief | Creates one open task with the case's owner and action. A coordinator may edit a suggested question before assigning it. Relay rechecks the attached quotes against the current sources, then saves the approved question and citations in the request event. The owner sees the question when recording a result. |
 | review, outcome retain | note, due | Records the remaining scope and reschedules the same open task. |
 | review, outcome close | observations[2] with name and observed, attested=true | Requires two distinct names and descriptions. Appends the technical decision and marks Eva closed. |
 | record | note | Records the response to a secondary case’s follow-up. Tracker status is preserved. |
@@ -92,7 +92,7 @@ Matching request IDs replay the original intake result. Distinct payloads with a
 - An observation field and attestation capture human accountability. Software cannot prove that execution really occurred. Input is restricted to fictional workshop notes.
 - The review kind controls whether a case has an owned follow-up or a two-scenario technical sign-off. It applies to new cases and the supplementary fictional examples. Owners are roles when a person is unknown. A signed-in user can add dated sources through the UI; external notifications are simulated.
 - Tests in `tests/workflow.test.mjs` cover evidence coverage, unsupported citations, role and scope checks, repeat clicks, retention, closure, persistence, concurrent writes, the model adapter with a test double, and provider failure. Run `node --test`.
-- First pilot improvement: map each project to a named, authenticated technical owner. Re-run Eva’s case with a coordinator and a technical lead, then check that only the assigned owner can sign and that both can trace the decision back to its sources.
+- First pilot improvement: synchronize named project assignments with the company directory. The deployed app already supports project-scoped technical accounts.
 
 ## Role-aware activity contract
 

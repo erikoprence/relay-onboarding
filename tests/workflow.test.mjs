@@ -35,6 +35,16 @@ test('every saved model example passes scope, coverage and verbatim checks',()=>
 test('review request keeps supported status and captures owner and due date',()=>{
   const s=opened();assert.equal(s.closed,false);assert.equal(s.task.owner,'Technical Lead');assert.equal(s.events[0].due,req.due);
 });
+test('coordinator can assign an edited brief only with the current case evidence',()=>{
+  const brief={...Core.exampleBrief(eva),question:'Which two scenarios will the lead observe next?'};
+  const attach=changes=>Core.transition(eva,Core.blank(),{...req,brief,...changes});
+  const s=attach({});
+  assert.deepEqual(s.events[0].brief,brief);
+  assert.equal(s.closed,false);
+  assert.throws(()=>attach({role:'Technical Lead'}));
+  assert.throws(()=>attach({brief:{...brief,findings:[brief.findings[0]]}}));
+  assert.throws(()=>attach({brief:{...brief,findings:[brief.findings[0],{sourceId:'E1',quote:'An unrelated message.'}]}}));
+});
 test('duplicate and unauthorized requests fail; invalid dates fail',()=>{
   assert.throws(()=>Core.transition(eva,opened(),req));assert.throws(()=>Core.transition(eva,Core.blank(),{...req,role:'Technical Lead'}));
   assert.throws(()=>Core.transition(eva,Core.blank(),{...req,due:'2026-02-30'}));

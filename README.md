@@ -5,14 +5,15 @@
 Eva Stone’s line manager considers her onboarding complete. On the same day, her technical lead reports that Eva can handle standard requests with occasional support and still has two complex scenarios to cover. Both updates describe Eva’s work on Project Orion. **Should the coordinator close her case?**
 
 Relay keeps Eva at **Ready with Support** and gives the coordinator a concrete next step. They can compare the two accounts, assign a technical review, and see who owns the decision and when it is due.
-[Read the agent specification](docs/AGENT_SPEC.md)
+
+[Try the offline demo](Relay-Demo.html) · [View the presentation](presentation/Relay-Presentation.pptx) · [Read the agent specification](docs/AGENT_SPEC.md)
 
 ## Review Eva’s case in three minutes
 
 Download **Relay-Demo.html** from the link above and open it in a desktop browser. It opens on Eva’s case, **ONB-005**, and runs offline without installation or an API key.
 
 1. **Compare the evidence.** Expand **AI evidence brief**. E3, the technical lead’s update, says “Two complex scenarios still need to be covered.” E4 records the line manager’s view that onboarding is closed. Click either source ID to read the full message.
-2. **Make the handoff.** Select **Request technical review**, choose a follow-up date, then select **Create follow-up**. The case stays open and the technical lead now owns the review.
+2. **Make the handoff.** In the brief, select **Use this question in a follow-up**. Edit the question if needed, choose the due date, and select **Create follow-up**. The technical lead receives the question. The decision history keeps the question and both source quotes together.
 3. **Record the decision.** Select **Switch to Technical Lead**, then **Record technical review**. Choose **Keep Ready with Support** and record what still needs observation. The handoff and its outcome appear in **Decision history**. To close Eva’s case, the lead must document two distinct observed scenarios and confirm independent execution and appropriate escalation.
 
 ## Where AI helps
