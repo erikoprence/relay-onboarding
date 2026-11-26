@@ -1,0 +1,6 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "node -e \"const fs = require('node:fs'); fs.mkdirSync('dist', { recursive: true }); fs.copyFileSync('Relay-Demo.html', 'dist/index.html')\"",
+  "outputDirectory": "dist"
+}
