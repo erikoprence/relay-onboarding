@@ -40,13 +40,16 @@
     $('total').textContent=rows.length;
     $('queue').innerHTML=rows.map(c=>'<button class="case-item '+(c.id===selected?'active':'')+'" data-case="'+c.id+'" '+(c.id===selected?'aria-current="page"':'')+'><span class="avatar">'+esc(c.name.trim().split(/\s+/).slice(0,2).map(w=>w[0]).join(''))+'</span><span><b>'+esc(c.name)+'</b><small>'+esc(c.project||'Project missing')+' · '+c.id+'</small></span></button>').join('')||'<p class="empty">No matching cases.</p>';
   }
+  const currentBrief=id=>briefs[id]?.brief||C.exampleBrief(id);
   function briefBody(id){
-    const brief=briefs[id]?.brief||C.exampleBrief(id);
+    const brief=currentBrief(id);
     if(!C.sources(id).length)return '<p class="sub">Only a tracker row is available. Request a dated observation from the owner before comparing sources.</p>';
-    const mode=briefs[id]?.mode==='live'?'Live local model · citation checks passed':'Saved AI example · generated during preparation';
+    const mode=briefs[id]?.mode==='live'?'Live AI model · citation checks passed':'Saved AI example · generated during preparation';
     const local='<details class="brief-box" id="local-topics"><summary>Find evidence by topic</summary><label class="field">Topic<select id="topic">'+window.RelayClassifier.categories.map(t=>'<option>'+esc(t)+'</option>').join('')+'</select></label><div id="topic-results"></div><p class="sub">A small classifier runs on this device. Check its topic suggestions against the source.</p></details>';
     if(!brief)return '<div class="brief-content"><p class="sub">Inspect the source messages or find related sentences by topic.</p>'+(live?'<button class="secondary" id="generate">Generate a live brief</button>':'')+local+'</div>';
-    return '<div class="brief-content"><span class="tag">'+mode+'</span>'+brief.findings.map(f=>'<p><button class="link" data-source="'+esc(f.sourceId)+'">'+esc(f.sourceId)+'</button> &nbsp;“'+esc(f.quote)+'”</p>').join('')+'<p><b>Suggested question</b><br>'+esc(brief.question)+'</p><p class="sub">Compare each quote with its source before using the question.</p>'+(live?'<button class="secondary" id="generate">Generate a live brief</button>':'')+local+'</div>';
+    const handoff=P.can(role(),'request') && state(id).phase==='unopened'
+      ?'<button class="secondary" id="assign-brief">Use this question in a follow-up</button>':'';
+    return '<div class="brief-content"><span class="tag">'+mode+'</span>'+brief.findings.map(f=>'<p><button class="link" data-source="'+esc(f.sourceId)+'">'+esc(f.sourceId)+'</button> &nbsp;“'+esc(f.quote)+'”</p>').join('')+'<p><b>Suggested question</b><br>'+esc(brief.question)+'</p><p class="sub">Compare each quote with its source before using the question.</p>'+handoff+(live?'<button class="secondary" id="generate">Generate a live brief</button>':'')+local+'</div>';
   }
   function showTopic(){
     if(!$('topic'))return;
@@ -78,6 +81,11 @@
     if(plan)rows.push(['Latest learning plan',plan.text]);
     return rows.map(([k,v])=>'<dt>'+esc(k)+'</dt><dd>'+esc(v)+'</dd>').join('');
   }
+  function handoffDetails(brief){
+    if(!brief)return '';
+    return '<details class="handoff"><summary>Assigned question and evidence</summary><p>'+esc(brief.question)+'</p>'+
+      brief.findings.map(f=>'<p><button type="button" class="link" data-source="'+esc(f.sourceId)+'">'+esc(f.sourceId)+'</button> '+esc(f.quote)+'</p>').join('')+'</details>';
+  }
   function render(){
     if(!C.caseFor(selected))selected=D.cases[0]?.id;
     $('new-case').hidden=fileMode||!P.can(role(),'create');
@@ -85,7 +93,7 @@
     const c=C.caseFor(selected);
     if(!c){$('detail').innerHTML='<h1>No assigned cases</h1><p>No onboarding cases match this account’s assignments.</p>';return;}
     const s=state(selected),dec=V.caseDecision(c,s,role(),decision(c,s)),list=C.sources(c.id);
-    const history=s.events.slice().reverse().map(ev=>'<div class="activity"><small>'+esc(ev.actorName && !ev.actorName.startsWith('demo / ')?ev.actorName+' ('+ev.role+')':ev.role)+' · '+esc(fmt(ev.at))+'</small><p>'+esc(ev.text)+'</p>'+(ev.due?'<small>Follow-up due '+fmt(ev.due)+'</small>':'')+(ev.observations?'<details><summary>Observed execution</summary>'+ev.observations.map(o=>'<p><b>'+esc(o.name)+'</b><br>'+esc(o.observed)+'</p>').join('')+'<p>Technical owner confirmed independent execution and escalation judgment.</p></details>':'')+'</div>').join('');
+    const history=s.events.slice().reverse().map(ev=>'<div class="activity"><small>'+esc(ev.actorName && !ev.actorName.startsWith('demo / ')?ev.actorName+' ('+ev.role+')':ev.role)+' · '+esc(fmt(ev.at))+'</small><p>'+esc(ev.text)+'</p>'+(ev.due?'<small>Follow-up due '+fmt(ev.due)+'</small>':'')+handoffDetails(ev.brief)+(ev.observations?'<details><summary>Observed execution</summary>'+ev.observations.map(o=>'<p><b>'+esc(o.name)+'</b><br>'+esc(o.observed)+'</p>').join('')+'<p>Technical owner confirmed independent execution and escalation judgment.</p></details>':'')+'</div>').join('');
     const signal=s.closed?'Validated closure':s.phase==='completed'?'Follow-up recorded':c.signal;
     $('detail').innerHTML=V.overview(D.cases,state,role())+'<div class="bread">Workspace <span>/</span> Cases <span>/</span> '+c.id+'</div><div class="titleline"><h1>'+esc(c.name)+'</h1><span class="pill '+(s.phase==='completed'?'ok':'')+'">'+esc(signal)+'</span></div><div class="meta"><b>'+esc(c.project||'Project unconfirmed')+'</b><span>'+esc(c.movement)+'</span><span>Started '+fmt(c.start)+'</span></div>'+
       '<section class="decision"><div class="kicker">'+esc(role()+' workspace')+'</div><h2>'+esc(dec[0])+'</h2><p>'+esc(dec[1])+'</p>'+dec[2]+'</section>'+V.outstanding(s,role())+
@@ -97,7 +105,7 @@
   }
   const dateField=(value='2026-10-16')=>'<label class="field">Next follow-up date<input type="date" name="due" min="'+D.snapshot+'" value="'+esc(value)+'" required></label>';
   const noteField=label=>'<label class="field">'+label+'<textarea name="note" minlength="10" maxlength="600" required></textarea></label>';
-  function modal(type){
+  function modal(type,brief=null){
     const c=C.caseFor(selected),s=state(c.id),eva=C.technical(c);
     $('modal-label').textContent=c.id+' / '+role();
     let fields,title,go;
@@ -105,11 +113,16 @@
     else if(type==='request'){
       title=eva?'Request technical review':'Assign follow-up';go='Create follow-up';
       fields='<p>'+esc(c.action)+'</p><p class="sub">Responsible role <b>'+esc(c.owner)+'</b></p>'+dateField(c.origin==='Workspace entry'?new Date(Date.now()+2*86400000).toISOString().slice(0,10):undefined);
+      if(brief)fields+='<label class="field">Question for the owner<textarea name="question" minlength="8" maxlength="240" required>'+esc(brief.question)+'</textarea></label><p class="sub">Evidence attached: '+brief.findings.map(f=>esc(f.sourceId)).join(', ')+'.</p>';
     }else if(type==='record'){
       title='Record follow-up result';go='Save result';fields=noteField('What did the owner confirm?');
     }else{
       title='Record technical review';go='Save review';
       fields='<label class="field">Review outcome<select name="outcome" id="outcome"><option value="retain">Keep '+esc(c.status)+'</option><option value="close">Validate independent execution and close</option></select></label><div id="review-fields"></div>';
+    }
+    if(type==='record'||type==='review'){
+      const assigned=P.last(s,['request'])?.brief;
+      if(assigned)fields='<p><b>Question from the coordinator</b><br>'+esc(assigned.question)+'</p>'+fields;
     }
     $('dialog-content').innerHTML='<h2>'+title+'</h2><form id="action-form">'+fields+'<p class="error" role="alert" id="form-error"></p><div class="btn-row"><button class="primary" type="submit">'+go+'</button><button class="secondary" id="cancel" type="button">Cancel</button></div></form>';
     const form=$('action-form'), revision=s.revision;
@@ -124,6 +137,10 @@
       const button=form.querySelector('[type=submit]');button.disabled=true;
       const values=Object.fromEntries(new FormData(form));
       const cmd={type,role:role(),revision,...values};
+      if(type==='request'&&brief){
+        cmd.brief={findings:brief.findings,question:values.question};
+        delete cmd.question;
+      }
       if(type==='confirmStart'){cmd.start=c.start;cmd.movement=c.movement;}
       if(values.outcome==='close'){cmd.observations=[1,2].map(i=>({name:values['name'+i],observed:values['observed'+i]}));cmd.attested=values.attested==='on';}
       try{await apply(c.id,cmd);await retrieve();$('dialog').close();render();toast('Saved to decision history.');}
@@ -191,6 +208,11 @@
     const b=e.target.closest('button');if(!b)return;
     if(b.dataset.jump){location.hash=b.dataset.jump;changeCase(b.dataset.jump);return;}
     if(b.dataset.roleAction){modal(b.dataset.roleAction);return;}
+    if(b.id==='assign-brief'){
+      const brief=currentBrief(selected);
+      if(brief&&P.can(role(),'request')&&state(selected).phase==='unopened')modal('request',brief);
+      return;
+    }
     if(b.id==='add-source'){entryForm('evidence');return;}
     if(['request','review','record'].includes(b.id)){modal(b.id);return;}
     if(b.id==='switch-role'){$('role').value=role()==='Coordinator'?'Technical Lead':'Coordinator';await switchView();return;}
