@@ -30,10 +30,11 @@ The offline demo simulates sign-ins and saves changes in the browser. The server
 
 ## Run the database-backed version
 
-With Node.js 22.13 or newer, run this command from the repository root.
+Install Node.js 22.13 or newer and start Ollama. From the repository root, run the following commands.
 
 ```sh
-node src/server.mjs
+ollama pull qwen2.5:3b
+npm start
 ```
 
-Open `http://127.0.0.1:4173`. Run `node --test` to check the review rules, role permissions and persistence. [Deployment guide](docs/DEPLOYMENT.md) · [Populated SQLite database](database/relay-sample.sqlite)
+Open [Eva’s case](http://127.0.0.1:4173/#ONB-005). Use the **Demo role** dropdown in the top right to switch roles without signing in. Open **AI evidence brief** and click **Generate a live brief** to use Ollama on your machine. Run `node --test` to check the review rules, role permissions and persistence. [Deployment guide](docs/DEPLOYMENT.md) · [Populated SQLite database](database/relay-sample.sqlite)

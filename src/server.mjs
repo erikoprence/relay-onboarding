@@ -78,7 +78,9 @@ export function makeServer(filename=':memory:',model=process.env.OLLAMA_MODEL,co
 if(process.argv[1] && path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
   const config=deploymentConfig(process.env);
   const directory=process.env.RELAY_DATA_DIR||path.join(base,'var');mkdirSync(directory,{recursive:true});
-  const port=Number(process.env.PORT||4173),server=makeServer(path.join(directory,'relay.sqlite'),process.env.OLLAMA_MODEL,config);
+  const port=Number(process.env.PORT||4173);
+  const model=process.env.OLLAMA_MODEL||(!config.authenticated?'qwen2.5:3b':undefined);
+  const server=makeServer(path.join(directory,'relay.sqlite'),model,config);
   server.listen(port,config.host,()=>console.log('Relay listening on '+config.host+':'+port+' ('+(config.authenticated?'authenticated':'local demo')+')'));
   const shutdown=()=>server.close(()=>process.exit(0));
   process.once('SIGTERM',shutdown);process.once('SIGINT',shutdown);
