@@ -444,7 +444,7 @@
     return [C.technical(c)?'Keep onboarding open':c.action,c.reason,accountRole==='Technical Lead'?'':btn];
   }
   function detailRows(c,s){
-    const rows=[['Record source',c.origin||'Starter pack'],['Movement',c.movement],['Start date',fmt(c.start)],['Project',c.project||'Unconfirmed'],['Listed manager',c.manager||'Unconfirmed'],['Tracker status',c.status],['Tracker updated',fmt(c.updated)],['Expected readiness','Unconfirmed']];
+    const rows=[['Movement',c.movement],['Start date',fmt(c.start)],['Project',c.project||'Unconfirmed'],['Listed manager',c.manager||'Unconfirmed'],['Tracker status',c.status],['Tracker updated',fmt(c.updated)],['Expected readiness','Unconfirmed']];
     const hr=P.last(s,['confirmStart']),checkIn=P.last(s,['checkIn']),plan=P.last(s,['plan']);
     rows.push(['HR start confirmation',hr?'Confirmed':'Awaiting confirmation']);
     if(checkIn)rows.push(['Latest employee check-in',checkIn.status]);
