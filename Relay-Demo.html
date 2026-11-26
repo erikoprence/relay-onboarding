@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="en" data-portable>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#113f39"><title>Relay · Onboarding review</title><style>:root{font:15px/1.5 "Inter","Segoe UI",Arial,sans-serif;color:#183630;background:#f5f6f0;--ink:#173d35;--green:#145d4c;--muted:#52665e;--line:#d3dbd0;--paper:#fffefa;--orange:#954319}*{box-sizing:border-box}body{margin:0}button,input,select,textarea{font:inherit}button,select{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible,summary:focus-visible,textarea:focus-visible{outline:3px solid #df9341;outline-offset:2px}header{min-height:70px;background:#113f39;color:#fff;padding:12px clamp(16px,3vw,48px);display:flex;gap:20px;align-items:center}.brand{display:flex;gap:11px;align-items:center;font-size:27px;font-weight:700;letter-spacing:-1.4px}.symbol{height:33px;width:33px;display:grid;place-items:center;background:#d2eaa7;color:#103f36;font:italic bold 27px Georgia;border-radius:8px 8px 8px 2px}.brand-sub{border-left:1px solid #638078;padding-left:20px;color:#d6e4da;font-size:14px}.spacer{flex:1}.role-label{display:flex;gap:10px;align-items:center;font-size:13px;color:#dbe8dd}header select{background:#205249;color:white;border:1px solid #6e9387;border-radius:9px;padding:6px 10px}.shell{display:grid;grid-template-columns:265px minmax(0,1fr);max-width:1720px;margin:auto}aside{padding:28px 16px 24px 22px;border-right:1px solid var(--line);background:#edf0e8;min-height:calc(100vh - 70px)}.small,.kicker{font-size:10px;letter-spacing:1.65px;font-weight:750;color:#5b6c5c;text-transform:uppercase}.queue-head h2{font-size:23px;margin:3px 0 13px;letter-spacing:-.8px}.queue-head h2 span{font-size:12px;background:#d8e2d2;padding:2px 7px;border-radius:10px;vertical-align:middle}aside input,aside select,.field select,.field input,.field textarea{background:#fffefa;width:100%;border:1px solid #b9c7b8;border-radius:7px;padding:8px 10px;color:var(--ink)}aside select{margin:7px 0 15px}nav{display:grid;gap:3px}.case-item{background:transparent;border:1px solid transparent;border-radius:8px;display:flex;gap:10px;width:100%;text-align:left;align-items:center;padding:8px 9px;color:var(--ink)}.case-item:hover{background:#e2e8dc}.case-item.active{background:#dce8d2;border-color:#b7c9ad;box-shadow:inset 3px 0 0 #246b50}.avatar{min-width:31px;height:31px;display:grid;place-items:center;font-size:10px;font-weight:700;letter-spacing:.7px;color:#4c645a;background:#e0e6dc;border-radius:50%}.active .avatar{background:#c2d5b5}.case-item b,.case-item small{display:block}.case-item b{font-size:13px}.case-item small{font-size:11px;color:var(--muted)}.snapshot{margin:22px 9px 0;font-size:11px;color:var(--muted)}main{padding:32px clamp(20px,3vw,56px) 60px;min-width:0}.bread{font-size:12px;color:var(--muted);margin-bottom:23px}.bread span{margin:0 8px;color:#91a192}.titleline,.section-head,.modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px}h1,h2,h3,p{margin-top:0}h1{font:normal clamp(38px,4vw,62px)/1.04 Georgia,serif;letter-spacing:-2.5px;margin-bottom:7px}.meta{display:flex;gap:6px 18px;flex-wrap:wrap;color:var(--muted);font-size:13px}.pill,.tag{display:inline-block;font-weight:650;font-size:11px;border-radius:20px;padding:4px 10px;white-space:nowrap}.pill{background:#f7dfc6;color:#823b17}.pill.ok{background:#d8ead5;color:#226046}.tag{background:#e6ece1;color:#3c5646}.decision{margin:24px 0;background:#e7efde;border:1px solid #c7d4bf;border-left:4px solid #508363;padding:20px 24px;border-radius:4px 12px 12px 4px}.decision h2{font:normal 30px/1.15 Georgia,serif;letter-spacing:-.7px;margin:5px 0 7px}.decision p{margin:0 0 13px;max-width:78ch;color:#334f40}.primary,.secondary,.link{display:inline-flex;align-items:center;justify-content:center;border-radius:7px;font-weight:650;font-size:13px;padding:8px 12px}.primary{color:white;background:#165746;border:1px solid #165746}.primary:hover{background:#0b4133}.secondary{color:var(--green);border:1px solid #9cb29c;background:var(--paper)}.link{color:var(--green);background:transparent;border:0;padding:2px 0;text-decoration:underline;text-underline-offset:3px}.btn-row{display:flex;gap:9px;flex-wrap:wrap;align-items:center}.section-head h2,.panel h2{font-size:19px;letter-spacing:-.55px;margin:0}.panel{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin-bottom:15px}.section-head{margin-bottom:14px}.evidence-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.source{padding:0 14px 2px 0}.source+.source{border-left:1px solid var(--line);padding-left:17px}.source h3{font-size:16px;line-height:1.25;margin:8px 0}.source p{font-size:13px;line-height:1.6;margin:6px 0}.source .source-meta,.sub,.empty,.foot{color:var(--muted);font-size:12px}.ref{font:700 10px/1.5 Consolas,monospace;letter-spacing:.3px;background:#e8eee4;border-radius:4px;padding:3px 6px;margin-right:6px}.brief-box{margin-top:15px;border-top:1px solid var(--line);padding-top:13px}.brief-box summary,details summary{cursor:pointer;font-weight:650;font-size:13px;color:var(--green)}.brief-content{font-size:13px;margin-top:12px}.brief-content p{margin:8px 0}.cols{display:grid;grid-template-columns:1fr 1fr;gap:15px}.panel dl{display:grid;grid-template-columns:auto 1fr;gap:7px 12px;font-size:13px;margin-bottom:0}.panel dt{color:var(--muted)}.panel dd{margin:0;font-weight:550;text-align:right}.activity{border-left:2px solid #b5c8b3;padding-left:13px;margin-top:12px}.activity p{margin:4px 0;font-size:13px}.activity small{color:var(--muted);font-size:11px}.activity details{font-size:12px}.foot{margin-top:6px}.skip,.sr{position:absolute;left:-10000px}.skip:focus{left:6px;top:5px;background:white;padding:6px;z-index:10}#message:not(:empty){position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#163e34;color:#fff;padding:9px 18px;border-radius:8px;z-index:5;max-width:90vw}.icon{border:0;background:transparent;color:var(--muted);font-size:26px}dialog{border:1px solid #c4cdbf;background:var(--paper);border-radius:13px;padding:20px 25px;color:var(--ink);width:min(510px,94vw);max-height:90vh;overflow:auto}dialog::backdrop{background:#112c26a8}dialog h2{font:normal 28px/1.15 Georgia,serif;margin:3px 0 12px}.field{display:grid;gap:4px;margin-bottom:11px;font-size:13px;font-weight:600}.field textarea{min-height:64px;resize:vertical}fieldset{border:1px solid var(--line);border-radius:7px;padding:10px;margin:0 0 10px}legend{font-size:12px}.check{display:flex;align-items:flex-start;gap:8px;font-size:13px;margin:10px 0}.error{color:#963e25;font-size:13px}.pending{font-size:13px;font-weight:650}.source:target,.source.flash{background:#faf0d7;border-radius:5px}.hidden,[hidden]{display:none!important}button:disabled{opacity:.55;cursor:wait}.empty{margin:12px 0}
+@media(min-width:621px){aside{position:sticky;top:0;display:flex;flex-direction:column;height:100vh;min-height:0}aside nav{overflow:auto;min-height:80px;align-content:start;scrollbar-width:thin}.snapshot{margin-top:12px}aside input,aside select,aside button#new-case{flex-shrink:0}#origin-filter{margin-top:0}#new-case{margin:0 0 12px}.add-source{margin-top:12px}}
+@media(min-width:1500px){main{padding-left:65px;padding-right:65px}.source p{font-size:15px}}
+@media(max-width:860px){.shell{grid-template-columns:210px minmax(0,1fr)}aside{padding:20px 10px}.evidence-grid,.cols{grid-template-columns:1fr}.source+.source{border-left:0;border-top:1px solid var(--line);padding:12px 0 0}.titleline{align-items:flex-start;flex-wrap:wrap}main{padding:22px 17px}.decision{padding:15px}.panel{padding:15px}}
+@media(max-width:620px){header{gap:8px}.brand-sub{display:none}.shell{display:block}aside{min-height:0;border:0;padding:12px 16px}.queue-head,.snapshot{display:none}aside input,aside select{width:calc(50% - 4px);margin:0}nav{display:flex;overflow-x:auto;margin-top:8px}nav .case-item{min-width:max-content}.case-item small,.case-item .avatar{display:none}.bread{margin-bottom:15px}.role-label{font-size:11px}.decision{margin:16px 0}.panel{margin-bottom:10px}}
+.risk-list{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:10px}.role-item p{margin:10px 0}.decision button+button{margin-left:5px}
+</style></head>
+<body><a class="skip" href="#detail">Skip to case</a>
+<header><div class="brand"><span class="symbol" aria-hidden="true">R</span>Relay</div><div class="brand-sub">Onboarding workspace</div><div class="spacer"></div><label class="role-label"><span id="role-label">Demo role</span> <select id="role"><option value="Coordinator">PMO / Coordinator</option><option value="Technical Lead">Technical Manager / Lead</option><option>Employee</option><option>HR</option><option>Line Manager</option><option>Management</option></select></label></header>
+<div class="shell"><aside><div class="queue-head"><div class="small">WORKSPACE</div><h2>Case queue <span id="total"></span></h2></div><label class="sr" for="search">Search cases</label><input id="search" type="search" placeholder="Search cases or projects"><label class="sr" for="filter">Filter cases</label><select id="filter"><option value="all">All cases</option><option value="attention">Needs attention</option><option value="open">Open follow-ups</option><option value="done">Completed follow-ups</option></select><label class="sr" for="origin-filter">Record source</label><select id="origin-filter"><option value="all">All record sources</option><option>Starter pack</option><option>Additional sample</option><option>Workspace entry</option></select><button class="secondary" id="new-case" hidden>+ New case</button><nav id="queue" aria-label="Employee cases"></nav><div class="snapshot">Sample dataset as of<br><strong>14 October 2026</strong></div></aside>
+<main id="detail" tabindex="-1"><p>Opening the case workspace…</p></main></div>
+<div id="message" role="status" aria-live="polite"></div>
+<dialog id="dialog"><div class="modal-head"><div class="small" id="modal-label"></div><button id="dismiss" class="icon" aria-label="Close dialog">×</button></div><div id="dialog-content"></div></dialog>
+<script>/* The fixed reference date preserves the meaning of "stale" in the October case file. */
+(function (root) {
+  const snapshot = '2026-10-14';
+  const rows = [
+    ['001','Mila Rowan','2026-10-05','New Hire','Aurora','Jon Vale','Shadowing','2026-10-13','Progress check','Request a supported-execution observation','Technical Lead','Shadowing records observation only. Ask the lead to watch Mila perform one agreed task.'],
+    ['002','Leo Marin','2026-10-07','Reallocation','Nimbus','Sara Neri','Access Pending','2026-10-14','Access blocker','Follow up on two missing accounts','Access Support','Orion awaits owner approval and Helix awaits provisioning. Ask Leo to confirm that he can sign in to the active VPN.'],
+    ['003','Nora Venn','2026-09-28','New Hire',null,'Tomas Reed','On Track','2026-09-30','Missing details','Confirm the project assignment','PMO Coordinator','The tracker has no project and its last update is 14 days old. Confirm the assignment before planning training.'],
+    ['004','Aron Bell','2026-10-01','Reallocation','Helios',null,'KT Started','2026-10-11','Missing details','Identify the accountable manager','PMO Coordinator','Training has started, but the tracker has no manager. Ask the coordinator to identify the manager and technical owner.'],
+    ['005','Eva Stone','2026-09-21','New Hire','Orion','Luca Gray','Ready with Support','2026-10-13','Conflicting evidence','Request technical review','Technical Lead','Keep Eva at Ready with Support. Her lead identifies two outstanding scenarios. Ask the technical lead to observe and record how she handles each one.'],
+    ['006','Noah Lane','2026-10-12','New Hire','Atlas','Maya Ford','Pre-Onboarding','2026-10-12','Project reference','Confirm the first learning activity','KT Owner','The Atlas owner supplied an approved folder. Confirm Noah can access it and agree the first learning activity.'],
+    ['007','Iris Moon','2026-09-15','Reallocation','Nova','Rita Cole','On Track','2026-09-20','Stale update','Refresh access and shadowing evidence','Line Manager','The last update is 24 days old. Access was expected the following week. Ask for an actual sign-in result and a dated training update.'],
+    ['008','Theo Park','2026-10-03','New Hire','Pulse','Mark Hale','Blocked','2026-10-14','Unspecified blocker','Identify the blocker and its owner','Line Manager','The tracker says Blocked. The cause, owner and recovery date are missing. Ask the manager to establish all three.'],
+    ['009','Lina West','2026-10-06','Reallocation',null,'Nina Cross','KT Started','2026-10-09','Missing details','Follow up on the unanswered request','Technical Manager','The tracker has no project. The coordinator still needs an exact role, knowledge-transfer owner and expected readiness date.'],
+    ['010','Owen Hart','2026-09-29','New Hire','Vega','Alex North','Partially Ready','2026-10-14','Review needed','Schedule an observed readiness review','Technical Lead','Owen reports working alone on standard activities. Ask the lead to observe exceptions and production changes and set a review date.']
+  ];
+  const cases = rows.map(([number,name,start,movement,project,manager,status,updated,signal,action,owner,reason]) =>
+    ({id:'ONB-'+number,name,start,movement,project,manager,status,updated,signal,action,owner,reason}));
+  const evidence = [
+    ['E1','002','Access request','Project Manager','2026-10-07','Please create Leo\'s Nova VPN, Orion Portal and Helix Service Desk accounts before his project start. Project code: NIM-482.'],
+    ['E2','002','Delayed account','Access Support','2026-10-14','Nova VPN is active. Orion Portal is still awaiting application-owner approval. Helix Service Desk has not yet been provisioned.'],
+    ['E3','005','Weekly KT update','Technical Lead','2026-10-13','Eva completed the first training topics and can handle standard requests with occasional support. Two complex scenarios still need to be covered. The Technical Lead classifies her as Ready with Support.'],
+    ['E4','005','Conflicting progress update','Line Manager','2026-10-13','From the local side everything looks complete and Eva is working independently. The Line Manager considers onboarding closed.'],
+    ['E5','009','Unanswered request','PMO Coordinator','2026-10-08','Request to confirm Lina\'s exact project role, assigned KT owner and expected readiness date. No response recorded as of 14 Oct 2026.'],
+    ['E6','010','Employee check-in','Employee','2026-10-14','I can complete the daily standard activities alone, but I still need help for exceptions and production changes. All tools are available. I have not yet received a date for the final readiness review.'],
+    ['E7','007','Stale tracker note','Tracker note','2026-09-20','Shadowing started; access expected next week. No later tracker update exists.'],
+    ['E8','006','Documentation location','KT Owner','2026-10-11','Training guide and runbook are available in /Team/Operations/Onboarding. The documents are project-owned and should not be copied outside that location. Keep only the folder reference in a central onboarding index.']
+  ].map(([id,num,title,author,date,body])=>({id,caseId:'ONB-'+num,title,author,date,body}));
+  // LLM-authored demonstration outputs. Every quotation is checked again before display.
+  const briefs = {
+    '002':[['E1',"Please create Leo's Nova VPN, Orion Portal and Helix Service Desk accounts before his project start."],['E2','Orion Portal is still awaiting application-owner approval. Helix Service Desk has not yet been provisioned.'],'Who can approve Orion, provision Helix and confirm a successful sign-in?'],
+    '005':[['E3','Two complex scenarios still need to be covered.'],['E4','The Line Manager considers onboarding closed.'],'What did Eva do independently in each of the two outstanding scenarios?'],
+    '006':[['E8','Keep only the folder reference in a central onboarding index.'],'Can Noah open the approved folder and find his first learning activity?'],
+    '007':[['E7','Shadowing started; access expected next week.'],'Can Iris now sign in and complete a task under observation?'],
+    '009':[['E5','No response recorded as of 14 Oct 2026.'],'Who can confirm the project role, training owner and expected readiness date?'],
+    '010':[['E6','I can complete the daily standard activities alone, but I still need help for exceptions and production changes.'],'When can the technical owner observe Owen handling an exception?']
+  };
+  const data = {snapshot,cases,evidence,briefs};
+  root.RelayData=data;
+  if(typeof module!=='undefined') module.exports=data;
+})(globalThis);
+</script><script>/* Additional fictional training records, distinct from the supplied starter pack. */
+(function(root){
+  // Each entry describes a separate project situation and two dated source messages.
+  const scenarios = [
+    ['Ada Kelm','Cedar','2026-10-05','New Hire','Mira Dell','Access Pending','Access blocker','Access Support','Confirm warehouse sign-in','The warehouse group was approved but a first successful sign-in is still missing.','Access Support','The read-only warehouse group was approved on Monday. The employee has been added to the queue for synchronization.','Employee','The catalog opens, but the warehouse returns a permission message when I select an order.'],
+    ['Beni Rell','Meridian','2026-09-24','Reallocation','Iva Kent','Ready with Support','Conflicting evidence','Technical Lead','Request technical review','The manager expects independent coverage. Verify the two escalation exercises named by the lead.','Line Manager','Beni handled the morning queue without assistance. I am ready to assign him the next full shift.','Technical Lead','Two complex scenarios still need to be covered: a duplicate escalation and a failed customer handover.'],
+    ['Cora Yll','Mosaic','2026-10-01','New Hire','Teo Lark','KT Started','Project reference','KT Owner','Confirm the approved guide','The learning index points to an old folder. Verify the approved project reference and learner access.','KT Owner','The current runbook lives in /Mosaic/KT/Release. Keep only the folder reference in the central index.','Employee','My welcome note links to the retired guides folder. I can open the current release folder.'],
+    ['Dren Oris','Arbor','2026-09-30','Reallocation','Mai Holt','Shadowing','Progress check','Technical Lead','Arrange the first supported shift','Shadowing is complete. No supported execution has been observed.','Employee','I observed two reconciliation shifts and can describe the handover sequence.','Technical Lead','Next week I can observe a supported shift. We have no independent execution evidence yet.'],
+    ['Ema Vail','Kestrel','2026-10-06','New Hire','Jan Moss','Blocked','Access blocker','Access Support','Provision staging permissions','The account exists. Staging access is blocking the first exercise.','Access Support','The directory account is active. The staging permissions request awaits application owner approval.','Employee','I can sign in to the directory. The staging exercise still shows access denied.'],
+    ['Faris Lune','Harbor','2026-09-21','Reallocation','Noa Penn','Partially Ready','Review needed','Technical Lead','Schedule paired exception practice','The employee handles routine reconciliations. The lead identified two exception types for observation.','Employee','I complete the daily reconciliation independently. I need help when a batch is duplicated.','Technical Lead','Observe a duplicate batch and a missing settlement before the final readiness review.'],
+    ['Gina Vel','Solis','2026-10-08','New Hire','Uma Hale','Pre-Onboarding','Missing details','PMO Coordinator','Confirm the receiving team','The move is recorded but the receiving squad has not confirmed the exact role.','HR','The project move is effective on Thursday. The receiving team still needs to confirm the role.','PMO Coordinator','I have requested a role description and an owner for the first learning activity.'],
+    ['Hana Rist','Juniper','2026-09-25','New Hire','Pia Dawn','KT Started','Missing details','KT Owner','Set a readiness review date','The topics have owners but no date for final review.','KT Owner','All four learning topics now have an owner and a shadowing slot.','Employee','I have dates for shadowing but no date for the final readiness review.'],
+    ['Ivo Kale','Delta','2026-10-02','Reallocation','Del Rose','On Track','Access blocker','Access Support','Confirm usable reporting access','An approved access request conflicts with the first attempted report export.','Project Manager','Reporting access was approved. The move tracker now shows On Track.','Employee','I can view reports but cannot export the training dataset. The export action is disabled.'],
+    ['Jora Moss','Aster','2026-09-23','New Hire','Tia Noll','Ready with Support','Conflicting evidence','Technical Lead','Request technical review','The mentor reports completed classes. The lead still needs observations for two exercises.','KT Owner','Jora attended every scheduled training session and I marked the training calendar complete.','Technical Lead','I still need to observe a priority change and an out-of-hours escalation before signing off.'],
+    ['Kian Rowe','Coral','2026-10-07','Reallocation','Uma Hale','Blocked','Missing details','Line Manager','Assign a backup mentor','The primary mentor is unavailable. Confirm a backup and a replacement session.','Employee','My first supported call was cancelled. I have no named contact for the next session.','Line Manager','The original mentor is unavailable this week. I will identify a backup in the receiving team.'],
+    ['Lira Elm','Cobalt','2026-10-05','New Hire','Jan Moss','Shadowing','Progress check','Technical Lead','Observe a supervised rerun','The first run used a mentor prompt. Repeat the task with an observer.','KT Owner','Lira completed the rehearsal with one prompt during the verification step.','Employee','I would like to repeat the same task and explain my verification decision.'],
+    ['Mika Thorn','Meridian','2026-09-22','Reallocation','Iva Kent','Partially Ready','Review needed','Technical Lead','Validate the two remaining procedures','Routine changes are independent. The rollback and post-change validation procedures remain unobserved.','Employee','I completed the routine training changes and kept the handover notes.','Technical Lead','Before sign-off, I want to observe rollback and post-change validation in a simulation.'],
+    ['Nela Pry','Cedar','2026-10-09','New Hire','Mira Dell','Pre-Onboarding','Project reference','KT Owner','Verify read access to training notes','A folder reference is available; access has not been confirmed.','KT Owner','The project learning notes are in /Cedar/Sprint/Joining. Add the reference to the index.','Employee','I have received the folder link. I have not tested it from my project account yet.'],
+    ['Orin Hartley','Beacon','2026-09-28','Reallocation','Rui Ash','Access Pending','Access blocker','Access Support','Check the ticketing role','VPN works but the ticketing role still prevents assignment.','Employee','I can sign in through the VPN and open the ticketing application. I cannot assign a case to myself.','Access Support','The ticketing role is awaiting service owner approval. Reading tickets is already enabled.'],
+    ['Pera Vale','Juniper','2026-10-01','New Hire','Pia Dawn','KT Started','Missing details','PMO Coordinator','Confirm the technical owner','Two people contributed to shadowing; neither has accepted final validation responsibility.','KT Owner','Two mentors will split the shadowing sessions for the operations queue.','PMO Coordinator','Please confirm which technical owner will validate independent execution.'],
+    ['Rian Dore','Linden','2026-09-29','New Hire','Eli Ness','On Track','Progress check','Line Manager','Refresh the shift handover','The tracker predicts a handover but the receiving shift has not confirmed it.','Line Manager','The weekly tracker assumes the next shift will take over the paired exercise.','Employee','I have not received a shift handover invitation or a contact for the session.'],
+    ['Sera Keel','Mosaic','2026-10-06','Reallocation','Teo Lark','Access Pending','Access blocker','Access Support','Verify the replacement account','The first account was disabled. Confirm the new account can reach the sample queue.','Access Support','A replacement test account is active. The original account was disabled.','Employee','The new account signs in. I still cannot see the sample queue used in training.'],
+    ['Tavi Nox','Solis','2026-09-18','New Hire','Uma Hale','Ready with Support','Conflicting evidence','Technical Lead','Request technical review','Local delivery looks complete. Two rare cases have not been observed independently.','Line Manager','Tavi now takes standard requests on the morning shift. My local onboarding checklist is complete.','Technical Lead','Two rare exercises remain: a failed handoff and an urgent reassignment. Independent execution has not been observed.'],
+    ['Vesa Lark','Harbor','2026-10-12','Reallocation','Noa Penn','Pre-Onboarding','Missing details','PMO Coordinator','Confirm the first-week plan','The receiving manager confirmed the project but the first activities and review date are missing.','Line Manager','The employee moved to Harbor on Monday and the project allocation is confirmed.','Employee','I have the project name but no first-week training plan or expected review date.']
+  ];
+  const cases=[],evidence=[];
+  scenarios.forEach(([name,project,start,movement,manager,status,signal,owner,action,reason,a1,b1,a2,b2],i)=>{
+    const id='ONB-'+String(i+11).padStart(3,'0');
+    cases.push({id,name,project,start,movement,manager,status,updated:'2026-10-14',signal,owner,action,reason,origin:'Additional sample',reviewKind:['Conflicting evidence','Review needed'].includes(signal)?'technical':'followup'});
+    [[a1,b1,'2026-10-13'],[a2,b2,'2026-10-14']].forEach(([author,body,date],j)=>{
+      evidence.push({id:'E'+(9+i*2+j),caseId:id,title:j?'Follow-up observation':'Project update',author,date,body,origin:'Additional sample'});
+    });
+  });
+  if(typeof module!=='undefined' && module.exports)module.exports={cases,evidence};
+  else{root.RelayData.cases.push(...cases);root.RelayData.evidence.push(...evidence);}
+})(globalThis);
+</script><script>(function(root){
+  const accounts=[
+    ['Coordinator','coordinator','RELAY_COORDINATOR_KEY','PMO / Coordinator'],
+    ['Technical Lead','technical-lead','RELAY_TECH_LEAD_KEY','Technical Manager / Lead'],
+    ['HR','hr','RELAY_HR_KEY','HR'],
+    ['Employee','employee','RELAY_EMPLOYEE_KEY','Employee'],
+    ['Line Manager','line-manager','RELAY_LINE_MANAGER_KEY','Line Manager'],
+    ['Management','management','RELAY_MANAGEMENT_KEY','Management']
+  ].map(([role,username,key,label])=>({role,username,key,label}));
+  const grants={
+    'Coordinator':['create','evidence','request','record','resolveBlocker','resolveIntervention','brief'],
+    'Technical Lead':['evidence','review','plan','resolveBlocker','resolveIntervention','brief'],
+    'HR':['create','confirmStart','resolveBlocker','resolveIntervention','brief'],
+    'Employee':['checkIn','brief'],
+    'Line Manager':['blocker','resolveBlocker','resolveIntervention','brief'],
+    'Management':['intervene','resolveIntervention','brief']
+  };
+  function can(role,action){return Object.hasOwn(grants,role)&&grants[role].includes(action);}
+  function actor(role,bindings={}){
+    return {role,caseId:bindings.caseId??'ONB-005',managerName:bindings.managerName??'Luca Gray',project:bindings.project??null};
+  }
+  function sees(person,c){
+    if(!person||!c||!Object.hasOwn(grants,person.role))return false;
+    if(person.role==='Employee')return c.id===person.caseId;
+    if(person.role==='Line Manager')return Boolean(person.managerName)&&c.manager===person.managerName;
+    if(person.role==='Technical Lead' && person.project)return c.project===person.project;
+    return true;
+  }
+  function scope(data,person){
+    const cases=data.cases.filter(c=>sees(person,c)),ids=new Set(cases.map(c=>c.id));
+    return {snapshot:data.snapshot,cases,evidence:data.evidence.filter(e=>ids.has(e.caseId)),
+      briefs:Object.fromEntries(Object.entries(data.briefs).filter(([suffix])=>ids.has('ONB-'+suffix)))};
+  }
+  function last(s,types){return s.events.slice().reverse().find(e=>types.includes(e.type));}
+  function open(s,kind){
+    const end=kind==='blocker'?'resolveBlocker':'resolveIntervention',event=last(s,[kind,end]);return event?.type===kind?event:null;
+  }
+  const sourceTitles={checkIn:'Employee check-in',blocker:'Practical blocker',resolveBlocker:'Blocker resolution',plan:'Knowledge-transfer plan'};
+  function eventSource(id,event){
+    const title=sourceTitles[event.type];if(!title||!event.sourceId)return null;
+    return {id:event.sourceId,caseId:id,title,author:event.role,date:event.at.slice(0,10),body:event.text,origin:'Workspace entry'};
+  }
+  const api={accounts,can,actor,sees,scope,last,open,sourceTitles,eventSource};
+  root.RelayRoles=api;if(typeof module!=='undefined')module.exports=api;
+})(globalThis);
+</script><script>(function(root){
+  const P=root.RelayRoles;
+  const escape=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+  const pages={
+    confirmStart:{title:'Confirm start or movement',button:'Confirm start',lead:c=>'Confirm '+c.name+'’s '+c.movement.toLowerCase()+' with the recorded start date of '+c.start+'.'},
+    checkIn:{title:'Employee check-in',button:'Submit check-in',options:['On track','Need support','Blocked'],note:'What can you do independently, or where do you need help?'},
+    blocker:{title:'Record a practical blocker',button:'Log blocker',owner:true,due:true,note:'What is blocking work, and what would resolve it?'},
+    resolveBlocker:{title:'Resolve practical blocker',button:'Record resolution',note:'What changed, and how was the resolution confirmed?'},
+    intervene:{title:'Request management intervention',button:'Assign intervention',owner:true,due:true,note:'What decision or support does this case need?'},
+    resolveIntervention:{title:'Complete intervention',button:'Record outcome',note:'What action was taken and what was the outcome?'},
+    plan:{title:'Plan knowledge transfer',button:'Save learning activity',due:true,note:'Which activity will the employee practise, and how will it be observed?'}
+  };
+  const btn=(type,label=pages[type].button)=>'<button type="button" class="secondary" data-role-action="'+type+'">'+escape(label)+'</button>';
+  const field=(label,control)=>'<label class="field">'+label+control+'</label>';
+  function form(type,c){
+    const p=pages[type],opts=values=>values.map(v=>'<option>'+escape(v)+'</option>').join('');
+    const defaultDate=new Date(Math.max(Date.now(),Date.parse(c.start))+2*86400000).toISOString().slice(0,10);
+    return (p.lead?'<p>'+escape(p.lead(c))+'</p>':'')+
+      (p.options?field('Current progress','<select name="status">'+opts(p.options)+'</select>'):'')+
+      (p.note?field(p.note,'<textarea name="note" minlength="10" maxlength="600" required></textarea>'):'')+
+      (p.owner?field('Accountable role','<select name="owner">'+opts(['Coordinator','Technical Lead','HR',...(c.manager?['Line Manager']:[])])+'</select>'):'')+
+      (p.due?field('Target date','<input type="date" name="due" min="2026-10-14" value="'+defaultDate+'" required>'):'');
+  }
+  function caseDecision(c,s,role,base){
+    const last=(types)=>P.last(s,types),block=P.open(s,'blocker'),inter=P.open(s,'intervene');
+    if(role==='HR'){
+      const confirmation=last(['confirmStart']);
+      return [confirmation?'Start record confirmed':'Confirm the start record',c.name+' · '+c.movement+' · '+c.start+' · Listed manager: '+(c.manager||'unconfirmed')+'.',confirmation?'':btn('confirmStart')];
+    }
+    if(role==='Employee'){
+      const recent=last(['checkIn']);
+      return ['My onboarding', (s.closed?'Technical readiness validated. ':'Current tracker status: '+c.status+'. ')+(s.task&&s.phase==='open'?'Next: '+s.task.action+' ('+s.task.owner+', due '+s.task.due+'). ':'Next: '+c.action+'. ')+(recent?'Latest check-in: '+recent.status+'.':'Your check-in goes to the case history.'),btn('checkIn')];
+    }
+    if(role==='Line Manager')return [block?'Practical blocker open':'Local progress',block?block.text+' Owner: '+block.owner+'. Due '+block.due+'.':c.reason,block?'':btn('blocker')];
+    if(role==='Management')return [inter?'Intervention assigned':'Review case risk',inter?inter.text+' Owner: '+inter.owner+'. Due '+inter.due+'.':c.reason,inter?'':btn('intervene')];
+    if(role==='Technical Lead' && !s.closed)return [base[0],base[1],base[2]+' '+btn('plan')];
+    return base;
+  }
+  function outstanding(s,role){
+    let html='';
+    for(const [key,end,title] of [['blocker','resolveBlocker','Practical blocker'],['intervene','resolveIntervention','Management intervention']]){
+      const e=P.open(s,key);if(!e)continue;
+      const accountable=key==='blocker'?'Line Manager':'Management';
+      const allowed=P.can(role,end)&&[e.owner,accountable,'Coordinator'].includes(role);
+      html+='<section class="panel role-item"><h2>'+title+'</h2><p>'+escape(e.text)+'</p><p class="sub">'+escape(e.owner)+' · Due '+escape(e.due)+'</p>'+(allowed?btn(end):'')+'</section>';
+    }
+    return html;
+  }
+  function risk(c,s){
+    if(P.open(s,'intervene'))return 'Intervention open';
+    if(P.open(s,'blocker'))return 'Practical blocker';
+    if(s.closed||s.phase==='completed')return '';
+    if(P.last(s,['checkIn'])?.status==='Blocked')return 'Employee reports a blocker';
+    if(s.phase==='open')return 'Follow-up open';
+    return ['Access blocker','Conflicting evidence','Stale update','Unspecified blocker'].includes(c.signal)?c.signal:'';
+  }
+  function overview(cases,state,role){
+    if(role==='HR'){
+      const pending=cases.filter(c=>!P.last(state(c.id),['confirmStart']));
+      return '<section class="panel portfolio"><div class="section-head"><h2>Start confirmations</h2><span class="tag">'+(cases.length-pending.length)+' of '+cases.length+' confirmed</span></div>'+
+        (pending.length?'<details><summary>Awaiting HR confirmation ('+pending.length+')</summary><div class="risk-list">'+pending.map(c=>'<button class="link" data-jump="'+escape(c.id)+'">'+escape(c.name)+' · '+escape(c.start)+'</button>').join('')+'</div></details>':'<p class="sub">All recorded starts have been confirmed.</p>')+'</section>';
+    }
+    if(role!=='Management')return '';
+    const flagged=cases.map(c=>({c,why:risk(c,state(c.id))})).filter(item=>item.why);
+    return '<section class="panel portfolio"><div class="section-head"><h2>Portfolio risk</h2><span class="tag">'+flagged.length+' of '+cases.length+' cases</span></div>'+
+      (flagged.length?'<details><summary>Cases needing attention</summary><div class="risk-list">'+flagged.map(({c,why})=>'<button class="link" data-jump="'+escape(c.id)+'">'+escape(c.name)+' · '+escape(why)+'</button>').join('')+'</div></details>':'<p class="sub">No cases currently flagged.</p>')+'</section>';
+  }
+  root.RelayRoleView={pages,form,caseDecision,outstanding,overview};
+})(globalThis);
+</script><script>(function(root){
+  function forCatalog(D){
+  const policy=root.RelayRoles || require('./roles.js');
+  const caseFor=id=>D.cases.find(c=>c.id===id);
+  const sources=id=>D.evidence.filter(e=>e.caseId===id);
+  const technical=c=>c.reviewKind==='technical'||(!c.reviewKind&&c.id==='ONB-005');
+  const blank=()=>({revision:0,phase:'unopened',events:[],task:null,closed:false});
+  const requireThat=(ok,message)=>{if(!ok)throw new Error(message);};
+  function note(text,min=10,max=600){
+    requireThat(typeof text==='string' && text.trim().length>=min && text.trim().length<=max,'Enter an observation of '+min+'–'+max+' characters.');
+    return text.trim();
+  }
+  function date(value){
+    requireThat(typeof value==='string' && /^\d{4}-\d{2}-\d{2}$/.test(value) && Number.isFinite(Date.parse(value)) && new Date(value).toISOString().slice(0,10)===value && value>=D.snapshot,'Choose a valid follow-up date on or after 14 Oct 2026.');
+    return value;
+  }
+  function transition(id,state,cmd,instant=new Date().toISOString()){
+    const c=caseFor(id);
+    requireThat(c && cmd && policy.can(cmd.role,cmd.type),'This role cannot perform the selected action.');
+    requireThat(cmd.revision===state.revision,'This case has changed. Refresh and review its latest entry.');
+    const s=JSON.parse(JSON.stringify(state));
+    const event={at:instant,role:cmd.role,type:cmd.type};
+    if(cmd.actorName)event.actorName=cmd.actorName;
+    if(cmd.type==='request'){
+      requireThat(cmd.role==='Coordinator' && s.phase==='unopened','Only the coordinator can open a new follow-up.');
+      s.task={owner:c.owner,action:c.action,due:date(cmd.due)};
+      s.phase='open';
+      event.text=c.action+' assigned to '+c.owner+'.';event.due=s.task.due;
+    } else if(cmd.type==='review'){
+      requireThat(technical(c) && cmd.role==='Technical Lead' && s.phase==='open','An open technical review and the Technical Lead role are required.');
+      requireThat(cmd.outcome==='retain' || cmd.outcome==='close','Choose a review outcome.');
+      event.outcome=cmd.outcome;
+      if(cmd.outcome==='close'){
+        requireThat(!policy.open(s,'blocker'),'Resolve the open practical blocker before signing off.');
+        requireThat(Array.isArray(cmd.observations) && cmd.observations.length===2,'Record both observed scenarios.');
+        event.observations=cmd.observations.map(o=>({name:note(o.name,3,80),observed:note(o.observed,15,600)}));
+        const normalize=x=>x.toLowerCase().replace(/\s+/g,' ').trim();
+        requireThat(normalize(event.observations[0].name)!==normalize(event.observations[1].name) && normalize(event.observations[0].observed)!==normalize(event.observations[1].observed),'Describe two distinct scenarios and observations.');
+        requireThat(cmd.attested===true,'The technical lead must confirm independent execution and escalation judgment.');
+        event.text='Technical owner validated independent execution and closed onboarding.';
+        event.attested=true;s.closed=true;s.phase='completed';
+      }else{
+        event.text=note(cmd.note); s.task.due=date(cmd.due);event.due=s.task.due;
+      }
+    } else if(cmd.type==='record'){
+      requireThat(!technical(c) && cmd.role==='Coordinator' && s.phase==='open','An open follow-up and the Coordinator role are required.');
+      event.text=note(cmd.note); s.phase='completed';
+    } else if(cmd.type==='confirmStart'){
+      requireThat(!policy.last(s,['confirmStart']),'HR has already confirmed the start record.');
+      requireThat(cmd.start===c.start&&cmd.movement===c.movement,'Review the current start date and movement before confirming.');
+      event.text='HR confirmed '+c.movement+' on '+c.start+'.';event.start=c.start;event.movement=c.movement;
+    } else if(cmd.type==='checkIn'){
+      requireThat(['On track','Need support','Blocked'].includes(cmd.status),'Choose a check-in status.');
+      event.status=cmd.status;event.text=cmd.status+' — '+note(cmd.note);
+    } else if(cmd.type==='plan'){
+      requireThat(!s.closed,'This onboarding case is closed.');
+      event.due=date(cmd.due);event.text='Learning activity: '+note(cmd.note)+' Target date: '+event.due+'.';
+    } else if(cmd.type==='blocker'||cmd.type==='intervene'){
+      requireThat(!policy.open(s,cmd.type),'This case already has an open item of this type.');
+      requireThat(['Coordinator','Technical Lead','HR','Line Manager'].includes(cmd.owner),'Choose an accountable role.');
+      requireThat(cmd.owner!=='Line Manager'||Boolean(c.manager),'Assign a role that has access to this case.');
+      event.owner=cmd.owner;event.due=date(cmd.due);event.text=note(cmd.note);
+      if(cmd.type==='blocker'&&s.phase==='completed'){s.closed=false;s.phase='unopened';s.task=null;}
+    } else if(cmd.type==='resolveBlocker'||cmd.type==='resolveIntervention'){
+      const blocker=cmd.type==='resolveBlocker',item=policy.open(s,blocker?'blocker':'intervene');
+      requireThat(item,'There is no open item to resolve.');
+      requireThat(cmd.role===item.owner||cmd.role===(blocker?'Line Manager':'Management')||cmd.role==='Coordinator','The assigned role or accountable manager must record the resolution.');
+      event.text=note(cmd.note);event.owner=item.owner;
+    } else throw new Error('Unknown action.');
+    if(policy.sourceTitles[cmd.type]){
+      event.sourceId='A-'+id+'-'+(s.revision+1);
+      if(cmd.type==='checkIn'&&cmd.status!=='On track'&&s.phase==='completed'){s.closed=false;s.phase='unopened';s.task=null;}
+    }
+    s.revision++;s.events.push(event);return s;
+  }
+  function validateBrief(id,brief){
+    const refs=sources(id);
+    requireThat(refs.length && brief && Array.isArray(brief.findings) && brief.findings.length===refs.length,'A finding is required for each supplied source.');
+    const ids=new Set();
+    const findings=brief.findings.map(f=>{
+      const e=refs.find(x=>x.id===f.sourceId);
+      requireThat(e && !ids.has(e.id) && typeof f.quote==='string' && f.quote.trim().length>=10 && e.body.includes(f.quote),'The brief contains unsupported evidence.');
+      ids.add(e.id);return {sourceId:e.id,quote:f.quote};
+    });
+    const question=note(brief.question,8,240);
+    requireThat(question.endsWith('?'),'The follow-up must be a question.');
+    return {findings,question};
+  }
+  function exampleBrief(id){
+    const rows=D.briefs[id.slice(4)];
+    if(!rows || rows.length-1!==sources(id).length)return null;
+    return validateBrief(id,{findings:rows.slice(0,-1).map(([sourceId,quote])=>({sourceId,quote})),question:rows.at(-1)});
+  }
+  return {caseFor,sources,blank,transition,validateBrief,exampleBrief,technical,forCatalog};
+  }
+  const api=forCatalog(root.RelayData || require('./data.js'));
+  root.Relay=api;if(typeof module!=='undefined')module.exports=api;
+})(globalThis);
+</script><script>/* A small explainable, on-device multinomial Naive Bayes text classifier.
+   Training examples are synthetic phrases written for the hackathon. */
+(function(root){
+  const training={
+    'Training gaps':[
+      'Two complex scenarios still need to be covered in training.',
+      'The employee needs help for exceptions and production changes.',
+      'Additional learning is required before the remaining scenarios can be handled.',
+      'Shadowing continues while exceptions require support.',
+      'One complex task still requires step by step guidance.'
+    ],
+    'Readiness and closure':[
+      'The manager considers onboarding closed after independent execution.',
+      'Everything looks complete and the employee is working independently.',
+      'The technical lead classifies readiness as ready with support.',
+      'The technical owner signed the final readiness decision.',
+      'Standard requests can be handled independently with occasional support.'
+    ],
+    'System access':[
+      'The portal account awaits application owner approval.',
+      'VPN access is active but sign in is still unconfirmed.',
+      'A requested account has not yet been provisioned.',
+      'Access support must create accounts for the service desk.',
+      'All tools are available and the user can sign in.'
+    ],
+    'Ownership and scheduling':[
+      'Confirm the exact project role and assigned training owner.',
+      'The final readiness review has no date yet.',
+      'The coordinator has received no response to the request.',
+      'No one has recorded an expected review date.',
+      'Assign a person and schedule the next follow up.'
+    ],
+    'Project documentation':[
+      'The runbook and training guide live in the project folder.',
+      'Use only the approved document location in the central index.',
+      'Documents are project owned and should never be copied outside that location.',
+      'The project document owner maintains the folder reference.',
+      'The guide is available from the team knowledge directory.'
+    ]
+  };
+  const stop=new Set('a an and as at be by for from has have he her his in is it of on or that the their these this to was were will with'.split(' '));
+  const words=s=>(s.toLowerCase().match(/[a-z]+/g)||[]).filter(w=>!stop.has(w));
+  const model={},vocab=new Set();
+  for(const [category,examples] of Object.entries(training)){
+    const counts=new Map();let total=0;
+    for(const sample of examples)for(const word of words(sample)){counts.set(word,(counts.get(word)||0)+1);vocab.add(word);total++;}
+    model[category]={counts,total};
+  }
+  function classify(sentence){
+    const tokens=words(sentence).filter(w=>vocab.has(w));
+    if(new Set(tokens).size<2)return null;
+    const ranked=Object.entries(model).map(([label,{counts,total}])=>({
+      label,score:tokens.reduce((sum,w)=>sum+Math.log(((counts.get(w)||0)+1)/(total+vocab.size)),0)
+    })).sort((a,b)=>b.score-a.score);
+    if(ranked[0].score-ranked[1].score<Math.log(1.6))return null;
+    return ranked[0].label;
+  }
+  function inspect(sources){
+    const found=[];
+    for(const s of sources){
+      const parts=s.body.match(/[^.!?]+[.!?]+|[^.!?]+$/g)||[];
+      for(const part of parts){
+        const quote=part.trim(),label=classify(quote);
+        if(label)found.push({label,sourceId:s.id,quote});
+      }
+    }
+    return found;
+  }
+  const api={categories:Object.keys(training),classify,inspect};
+  root.RelayClassifier=api;if(typeof module!=='undefined')module.exports=api;
+})(globalThis);
+</script><script>(async function(){
+  'use strict';
+  const D=window.RelayData,C=window.Relay,$=id=>document.getElementById(id);
+  const esc=s=>String(s??'').replace(/[&<>"']/g,x=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]));
+  const fmt=s=>new Intl.DateTimeFormat('en-GB',{day:'2-digit',month:'short',year:'numeric',timeZone:'UTC'}).format(new Date(s));
+  const fileMode=location.protocol==='file:' || document.documentElement.hasAttribute('data-portable');
+  const storeKey='relay.readiness.workspace.v1';
+  let accountRole=null, states={}, live=false, busy=false, timer;
+  let selected=location.hash.substring(1) || 'ONB-005';
+  const P=window.RelayRoles,V=window.RelayRoleView;
+  const offlineBase=fileMode?{...D,cases:[...D.cases],evidence:[...D.evidence]}:null;
+  let viewRevision=0;
+  const briefs={};
+  const state=id=>states[id]||C.blank();
+  const role=()=>$('role').value;
+  function readLocal(){const raw=localStorage.getItem(storeKey);return raw?JSON.parse(raw):{};}
+  async function retrieve(){
+    const rev=++viewRevision;
+    if(fileMode){
+      states=readLocal();
+      const view=P.scope(offlineBase,P.actor(role()));
+      for(const c of view.cases)for(const e of state(c.id).events){const src=P.eventSource(c.id,e);if(src)view.evidence.push(src);}
+      Object.assign(D,view);return;
+    }
+    const response=await fetch('/api/state?role='+encodeURIComponent(role()),{cache:'no-store'});if(!response.ok)throw new Error('Cannot read the workspace.');
+    const data=await response.json();if(rev!==viewRevision)return;states=data.cases;live=data.live;Object.assign(D,data.catalog);accountRole=data.accountRole;
+    if(accountRole){$('role').value=accountRole;$('role').disabled=true;$('role-label').textContent='Signed in';}
+    Object.keys(briefs).forEach(id=>delete briefs[id]);
+  }
+  function toast(s){$('message').textContent=s;clearTimeout(timer);timer=setTimeout(()=>$('message').textContent='',4500);}
+  const demoIntro='Sample workspace · '+(fileMode?'Browser storage':'Local server and SQLite');
+  function renderQueue(){
+    const q=$('search').value.trim().toLowerCase(), f=$('filter').value;
+    const rows=D.cases.filter(c=>{
+      const p=state(c.id).phase, origin=$('origin-filter').value||'all';
+      if(origin!=='all' && (c.origin||'Starter pack')!==origin)return false;
+      return [c.name,c.id,c.project,c.signal].join(' ').toLowerCase().includes(q) &&
+        (f==='all'||f==='open'&&p==='open'||f==='done'&&p==='completed'||f==='attention'&&p!=='completed'&&!['Project reference','Progress check'].includes(c.signal));
+    }).sort((a,b)=>(a.id==='ONB-005'?-1:b.id==='ONB-005'?1:a.id.localeCompare(b.id)));
+    $('total').textContent=rows.length;
+    $('queue').innerHTML=rows.map(c=>'<button class="case-item '+(c.id===selected?'active':'')+'" data-case="'+c.id+'" '+(c.id===selected?'aria-current="page"':'')+'><span class="avatar">'+esc(c.name.trim().split(/\s+/).slice(0,2).map(w=>w[0]).join(''))+'</span><span><b>'+esc(c.name)+'</b><small>'+esc(c.project||'Project missing')+' · '+c.id+'</small></span></button>').join('')||'<p class="empty">No matching cases.</p>';
+  }
+  function briefBody(id){
+    const brief=briefs[id]?.brief||C.exampleBrief(id);
+    if(!C.sources(id).length)return '<p class="sub">Only a tracker row is available. Request a dated observation from the owner before comparing sources.</p>';
+    const mode=briefs[id]?.mode==='live'?'Live local model · citation checks passed':'Saved AI example · generated during preparation';
+    const local='<details class="brief-box" id="local-topics"><summary>Find evidence by topic</summary><label class="field">Topic<select id="topic">'+window.RelayClassifier.categories.map(t=>'<option>'+esc(t)+'</option>').join('')+'</select></label><div id="topic-results"></div><p class="sub">A small classifier runs on this device. Check its topic suggestions against the source.</p></details>';
+    if(!brief)return '<div class="brief-content"><p class="sub">Inspect the source messages or find related sentences by topic.</p>'+(live?'<button class="secondary" id="generate">Generate a live brief</button>':'')+local+'</div>';
+    return '<div class="brief-content"><span class="tag">'+mode+'</span>'+brief.findings.map(f=>'<p><button class="link" data-source="'+esc(f.sourceId)+'">'+esc(f.sourceId)+'</button> &nbsp;“'+esc(f.quote)+'”</p>').join('')+'<p><b>Suggested question</b><br>'+esc(brief.question)+'</p><p class="sub">Compare each quote with its source before using the question.</p>'+(live?'<button class="secondary" id="generate">Generate a live brief</button>':'')+local+'</div>';
+  }
+  function showTopic(){
+    if(!$('topic'))return;
+    const matches=window.RelayClassifier.inspect(C.sources(selected)).filter(x=>x.label===$('topic').value);
+    $('topic-results').innerHTML=matches.map(x=>'<p><button class="link" data-source="'+esc(x.sourceId)+'">'+esc(x.sourceId)+'</button> &nbsp;“'+esc(x.quote)+'”</p>').join('')||'<p class="empty">No sentence matched this topic with enough evidence. Inspect the full sources.</p>';
+  }
+  function sourceCards(c){
+    const list=C.sources(c.id);
+    if(!list.length)return '<p class="empty">This case has a tracker entry only. Ask the owner for corroborating evidence.</p>';
+    return '<div class="evidence-grid">'+list.map(e=>'<article class="source" id="src-'+e.id+'" tabindex="-1"><div class="source-meta"><span class="ref">'+e.id+'</span>'+fmt(e.date)+'</div><h3>'+esc(e.author)+'</h3><p>'+esc(e.body)+'</p></article>').join('')+'</div>';
+  }
+  function decision(c,s){
+    if(s.closed)return ['Onboarding closed','The technical owner recorded two independent execution observations. The case history preserves the original disagreement.',''];
+    if(s.phase==='completed')return ['Follow-up recorded','The coordinator recorded the owner’s response. The original tracker status is preserved.',''];
+    if(s.phase==='open'){
+      const eva=C.technical(c), reviewer=role()==='Technical Lead';
+      const button=eva?(reviewer?'<button class="primary" id="review">Record technical review</button>':'<button class="secondary" id="switch-role">Switch to Technical Lead</button>'):(reviewer?'<button class="secondary" id="switch-role">Switch to Coordinator</button>':'<button class="primary" id="record">Record follow-up result</button>');
+      const waiting=accountRole && ((eva&&!reviewer)||(!eva&&reviewer));
+      return [eva?'Technical review requested':'Follow-up in progress',s.task.action+' · Assigned to '+s.task.owner+' · Due '+fmt(s.task.due)+'.',waiting?'':button];
+    }
+    const btn=role()==='Coordinator'?'<button class="primary" id="request">'+esc(C.technical(c)?c.action:'Assign follow-up')+' <span aria-hidden="true">&nbsp;→</span></button>':'<button class="secondary" id="switch-role">Switch to Coordinator</button>';
+    return [C.technical(c)?'Keep onboarding open':c.action,c.reason,accountRole==='Technical Lead'?'':btn];
+  }
+  function detailRows(c,s){
+    const rows=[['Record source',c.origin||'Starter pack'],['Movement',c.movement],['Start date',fmt(c.start)],['Project',c.project||'Unconfirmed'],['Listed manager',c.manager||'Unconfirmed'],['Tracker status',c.status],['Tracker updated',fmt(c.updated)],['Expected readiness','Unconfirmed']];
+    const hr=P.last(s,['confirmStart']),checkIn=P.last(s,['checkIn']),plan=P.last(s,['plan']);
+    rows.push(['HR start confirmation',hr?'Confirmed':'Awaiting confirmation']);
+    if(checkIn)rows.push(['Latest employee check-in',checkIn.status]);
+    if(plan)rows.push(['Latest learning plan',plan.text]);
+    return rows.map(([k,v])=>'<dt>'+esc(k)+'</dt><dd>'+esc(v)+'</dd>').join('');
+  }
+  function render(){
+    if(!C.caseFor(selected))selected=D.cases[0]?.id;
+    $('new-case').hidden=fileMode||!P.can(role(),'create');
+    renderQueue();
+    const c=C.caseFor(selected);
+    if(!c){$('detail').innerHTML='<h1>No assigned cases</h1><p>No onboarding cases match this account’s assignments.</p>';return;}
+    const s=state(selected),dec=V.caseDecision(c,s,role(),decision(c,s)),list=C.sources(c.id);
+    const history=s.events.slice().reverse().map(ev=>'<div class="activity"><small>'+esc(ev.actorName && !ev.actorName.startsWith('demo / ')?ev.actorName+' ('+ev.role+')':ev.role)+' · '+esc(fmt(ev.at))+'</small><p>'+esc(ev.text)+'</p>'+(ev.due?'<small>Follow-up due '+fmt(ev.due)+'</small>':'')+(ev.observations?'<details><summary>Observed execution</summary>'+ev.observations.map(o=>'<p><b>'+esc(o.name)+'</b><br>'+esc(o.observed)+'</p>').join('')+'<p>Technical owner confirmed independent execution and escalation judgment.</p></details>':'')+'</div>').join('');
+    const signal=s.closed?'Validated closure':s.phase==='completed'?'Follow-up recorded':c.signal;
+    $('detail').innerHTML=V.overview(D.cases,state,role())+'<div class="bread">Workspace <span>/</span> Cases <span>/</span> '+c.id+'</div><div class="titleline"><h1>'+esc(c.name)+'</h1><span class="pill '+(s.phase==='completed'?'ok':'')+'">'+esc(signal)+'</span></div><div class="meta"><b>'+esc(c.project||'Project unconfirmed')+'</b><span>'+esc(c.movement)+'</span><span>Started '+fmt(c.start)+'</span></div>'+
+      '<section class="decision"><div class="kicker">'+esc(role()+' workspace')+'</div><h2>'+esc(dec[0])+'</h2><p>'+esc(dec[1])+'</p>'+dec[2]+'</section>'+V.outstanding(s,role())+
+      '<section class="panel"><div class="section-head"><h2>Source evidence</h2><span class="tag">'+list.length+' message'+(list.length===1?'':'s')+'</span></div>'+sourceCards(c)+(fileMode||!P.can(role(),'evidence')?'':'<button class="link add-source" id="add-source">+ Add source evidence</button>')+'<details class="brief-box" id="brief"><summary>AI evidence brief</summary><div id="brief-body">'+briefBody(c.id)+'</div></details></section>'+
+      '<div class="cols"><section class="panel"><h2>Case record</h2><dl>'+detailRows(c,s)+'</dl></section><section class="panel"><h2>Decision history</h2>'+history+'<div class="activity"><small>Source tracker · '+fmt(c.updated)+'</small><p>'+esc(c.status)+'</p></div></section></div><div class="foot">'+demoIntro+(accountRole?' · Signed in as '+esc(accountRole):' · Demo role switching enabled.')+'</div>';
+  }
+  function changeCase(id){
+    if(!C.caseFor(id))return;selected=id;render();
+  }
+  const dateField=(value='2026-10-16')=>'<label class="field">Next follow-up date<input type="date" name="due" min="'+D.snapshot+'" value="'+esc(value)+'" required></label>';
+  const noteField=label=>'<label class="field">'+label+'<textarea name="note" minlength="10" maxlength="600" required></textarea></label>';
+  function modal(type){
+    const c=C.caseFor(selected),s=state(c.id),eva=C.technical(c);
+    $('modal-label').textContent=c.id+' / '+role();
+    let fields,title,go;
+    if(Object.hasOwn(V.pages,type)){title=V.pages[type].title;go=V.pages[type].button;fields=V.form(type,c);}
+    else if(type==='request'){
+      title=eva?'Request technical review':'Assign follow-up';go='Create follow-up';
+      fields='<p>'+esc(c.action)+'</p><p class="sub">Responsible role <b>'+esc(c.owner)+'</b></p>'+dateField(c.origin==='Workspace entry'?new Date(Date.now()+2*86400000).toISOString().slice(0,10):undefined);
+    }else if(type==='record'){
+      title='Record follow-up result';go='Save result';fields=noteField('What did the owner confirm?');
+    }else{
+      title='Record technical review';go='Save review';
+      fields='<label class="field">Review outcome<select name="outcome" id="outcome"><option value="retain">Keep '+esc(c.status)+'</option><option value="close">Validate independent execution and close</option></select></label><div id="review-fields"></div>';
+    }
+    $('dialog-content').innerHTML='<h2>'+title+'</h2><form id="action-form">'+fields+'<p class="error" role="alert" id="form-error"></p><div class="btn-row"><button class="primary" type="submit">'+go+'</button><button class="secondary" id="cancel" type="button">Cancel</button></div></form>';
+    const form=$('action-form'), revision=s.revision;
+    function outcomeFields(){
+      if($('outcome').value==='retain'){$('review-fields').innerHTML=noteField('Which work still needs support?')+dateField(s.task.due);return;}
+      $('review-fields').innerHTML=[1,2].map(i=>'<fieldset><legend>Observed scenario '+i+'</legend><label class="field">Scenario name<input name="name'+i+'" minlength="3" maxlength="80" required></label><label class="field">What did you observe?<textarea name="observed'+i+'" minlength="15" maxlength="600" required></textarea></label></fieldset>').join('')+'<label class="check"><input type="checkbox" name="attested" required>I observed both scenarios and confirm independent execution and appropriate escalation.</label>';
+    }
+    if(type==='review'){$('outcome').addEventListener('change',outcomeFields);outcomeFields();}
+    $('cancel').onclick=()=>$('dialog').close();
+    form.onsubmit=async e=>{
+      e.preventDefault();if(busy)return;busy=true;
+      const button=form.querySelector('[type=submit]');button.disabled=true;
+      const values=Object.fromEntries(new FormData(form));
+      const cmd={type,role:role(),revision,...values};
+      if(type==='confirmStart'){cmd.start=c.start;cmd.movement=c.movement;}
+      if(values.outcome==='close'){cmd.observations=[1,2].map(i=>({name:values['name'+i],observed:values['observed'+i]}));cmd.attested=values.attested==='on';}
+      try{await apply(c.id,cmd);await retrieve();$('dialog').close();render();toast('Saved to decision history.');}
+      catch(err){$('form-error').textContent=err.message;try{await retrieve();render();}catch{}}
+      finally{busy=false;button.disabled=false;}
+    };
+    $('dialog').showModal();
+  }
+  function entryForm(kind){
+    if(fileMode)return;
+    const creating=kind==='case',id=selected,revision=state(id).revision,requestId=crypto.randomUUID(),today=new Date().toISOString().slice(0,10);
+    const input=(label,name,{type='text',required=true,value='',limit=120}={})=>'<label class="field">'+label+'<input name="'+name+'" type="'+type+'" maxlength="'+limit+'" value="'+esc(value)+'" '+(required?'required':'')+'></label>';
+    const selector=(label,name,options)=>'<label class="field">'+label+'<select name="'+name+'">'+options.map(([v,s])=>'<option value="'+esc(v)+'">'+esc(s)+'</option>').join('')+'</select></label>';
+    const area=(label,name,max)=>'<label class="field">'+label+'<textarea name="'+name+'" minlength="10" maxlength="'+max+'" required></textarea></label>';
+    const fields=creating?
+      input('Fictional employee name','name')+input('Start date','start',{type:'date',value:today})+
+      selector('Movement','movement',[['New Hire','New hire'],['Reallocation','Reallocation']])+input('Project (optional)','project',{required:false})+
+      input('Manager (optional)','manager',{required:false})+input('Tracker status','status',{value:'Pre-Onboarding'})+
+      selector('Workflow','reviewKind',[['followup','Coordinator follow-up'],['technical','Technical review of two scenarios']])+
+      input('Responsible role','owner',{value:'PMO Coordinator'})+input('Next action','action',{limit:160})+area('Why is this action needed?','reason',600):
+      input('Source title','title')+input('Source author or role','author')+input('Source date','date',{type:'date',value:today})+area('Fictional source message','body',2400);
+    $('modal-label').textContent=creating?role()+' / Case intake':id+' / Source evidence';
+    $('dialog-content').innerHTML='<h2>'+(creating?'New onboarding case':'Add source evidence')+'</h2><form id="entry-form">'+fields+'<p class="error" role="alert" id="entry-error"></p><div class="btn-row"><button class="primary" type="submit">Save '+(creating?'case':'source')+'</button><button class="secondary" type="button" id="cancel-entry">Cancel</button></div></form>';
+    const form=$('entry-form');
+    if(creating){
+      form.elements.reviewKind.onchange=()=>{const tech=form.elements.reviewKind.value==='technical';form.elements.owner.readOnly=tech;form.elements.owner.value=tech?'Technical Lead':'PMO Coordinator';};
+    }
+    $('cancel-entry').onclick=()=>$('dialog').close();
+    form.onsubmit=async event=>{
+      event.preventDefault();if(busy)return;busy=true;const button=form.querySelector('[type=submit]');button.disabled=true;
+      try{
+        const payload={...Object.fromEntries(new FormData(form)),requestId,role:role(),revision};
+        const res=await fetch(creating?'/api/cases':'/api/cases/'+id+'/evidence',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+        const out=await res.json();if(!res.ok)throw new Error(out.error+(res.status===409?' Close this form and reopen the case.':''));
+        await retrieve();$('dialog').close();
+        if(creating){$('search').value='';$('filter').value='all';$('origin-filter').value='all';selected=out.id;location.hash=out.id;}
+        render();toast(creating?'Case saved to the database.':'Source added to case history.');
+      }catch(err){$('entry-error').textContent=err.message;try{await retrieve();render();}catch{}}
+      finally{button.disabled=false;busy=false;}
+    };
+    $('dialog').showModal();
+  }
+  async function apply(id,cmd){
+    if(fileMode){
+      const change=()=>{const latest=readLocal();latest[id]=C.transition(id,latest[id]||C.blank(),cmd);localStorage.setItem(storeKey,JSON.stringify(latest));states=latest;};
+      if(navigator.locks)await navigator.locks.request(storeKey,change);else change();return;
+    }
+    const result=await fetch('/api/cases/'+id+'/action',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(cmd)});
+    const body=await result.json();if(!result.ok)throw new Error(body.error);states[id]=body;
+  }
+  $('queue').onclick=e=>{const id=e.target.closest('[data-case]')?.dataset.case;if(id){location.hash=id;changeCase(id);}};
+  window.addEventListener('hashchange',()=>changeCase(location.hash.substring(1)));
+  window.addEventListener('storage',async e=>{if(fileMode&&e.key===storeKey){await retrieve();render();}});
+  $('new-case').onclick=()=>entryForm('case');
+  $('origin-filter').onchange=renderQueue;
+  async function switchView(){
+    $('queue').innerHTML='';$('detail').innerHTML='<p>Loading workspace…</p>';$('new-case').hidden=true;
+    try{await retrieve();render();}catch{$('detail').innerHTML='<p>Unable to load this workspace. Refresh to retry.</p>';}
+  }
+  $('role').onchange=switchView;$('search').oninput=renderQueue;$('filter').onchange=renderQueue;
+  $('detail').addEventListener('change',e=>{if(e.target.id==='topic')showTopic();});
+  $('detail').addEventListener('toggle',e=>{if(e.target.id==='local-topics'&&e.target.open)showTopic();},true);
+  $('dismiss').onclick=()=>$('dialog').close();
+  $('detail').onclick=async e=>{
+    const b=e.target.closest('button');if(!b)return;
+    if(b.dataset.jump){location.hash=b.dataset.jump;changeCase(b.dataset.jump);return;}
+    if(b.dataset.roleAction){modal(b.dataset.roleAction);return;}
+    if(b.id==='add-source'){entryForm('evidence');return;}
+    if(['request','review','record'].includes(b.id)){modal(b.id);return;}
+    if(b.id==='switch-role'){$('role').value=role()==='Coordinator'?'Technical Lead':'Coordinator';await switchView();return;}
+    if(b.dataset.source){const src=$('src-'+b.dataset.source);src?.focus();src?.classList.add('flash');setTimeout(()=>src?.classList.remove('flash'),1600);return;}
+    if(b.id==='generate'){
+      const id=selected;b.disabled=true;b.textContent='Reading source messages…';
+      try{const response=await fetch('/api/cases/'+id+'/brief',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({role:role()})});const out=await response.json();if(!response.ok)throw new Error(out.error);briefs[id]={mode:'live',brief:C.validateBrief(id,out.brief)};if(selected===id)$('brief-body').innerHTML=briefBody(id);}
+      catch(err){toast(err.message);}
+      finally{b.disabled=false;b.textContent='Generate a live brief';}
+    }
+  };
+  try{await retrieve();render();}catch{$('detail').innerHTML='<h1>Workspace unavailable</h1><p>Start the local server, or open Relay-Demo.html in a browser with local storage enabled.</p>';}
+})();
+</script></body></html>

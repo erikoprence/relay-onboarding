@@ -1,0 +1,15 @@
+import {mkdirSync,writeFileSync} from 'node:fs';
+import {randomBytes,createHash} from 'node:crypto';
+import path from 'node:path';
+import Roles from '../web/roles.js';
+import {defaultDir,validateAccount} from '../src/account-files.mjs';
+const [name,slug,binding]=process.argv.slice(2),definition=Roles.accounts.find(r=>r.username===slug);
+if(!name||!definition)throw new Error('Usage: node scripts/account.mjs USERNAME ROLE-SLUG [CASE-ID | MANAGER-NAME | PROJECT]');
+const secret=randomBytes(32).toString('base64url'),row={name,role:definition.role,verifier:createHash('sha256').update(name+':'+secret).digest('hex')};
+if(row.role==='Employee')row.caseId=binding;
+if(row.role==='Line Manager')row.managerName=binding;
+if(row.role==='Technical Lead')row.project=binding;
+validateAccount(row);
+const dir=process.env.RELAY_ACCOUNTS_DIR||defaultDir;mkdirSync(dir,{recursive:true,mode:0o755});
+writeFileSync(path.join(dir,name+'.json'),JSON.stringify(row,null,2)+'\n',{flag:'wx',mode:0o644});
+console.log('Login:',name,'\nOne-time password display:',secret,'\nRestart the authenticated app to load this account.');
