@@ -6,7 +6,7 @@ Eva Stone’s line manager considers her onboarding complete. On the same day, h
 
 Relay keeps Eva at **Ready with Support** and gives the coordinator a concrete next step. They can compare the two accounts, assign a technical review, and see who owns the decision and when it is due.
 
-[Try the offline demo](Relay-Demo.html) · [View the presentation](presentation/Relay-Presentation.pptx) · [Read the agent specification](docs/AGENT_SPEC.md)
+[Try the offline demo](Relay-Demo.html) · [Read the agent specification](docs/AGENT_SPEC.md)
 
 ## Review Eva’s case in three minutes
 
