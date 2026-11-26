@@ -418,7 +418,7 @@
   function briefBody(id){
     const brief=currentBrief(id);
     if(!C.sources(id).length)return '<p class="sub">Only a tracker row is available. Request a dated observation from the owner before comparing sources.</p>';
-    const mode=briefs[id]?.mode==='live'?'Live local model · citation checks passed':'Saved AI example · generated during preparation';
+    const mode=briefs[id]?.mode==='live'?'Live AI model · citation checks passed':'Saved AI example · generated during preparation';
     const local='<details class="brief-box" id="local-topics"><summary>Find evidence by topic</summary><label class="field">Topic<select id="topic">'+window.RelayClassifier.categories.map(t=>'<option>'+esc(t)+'</option>').join('')+'</select></label><div id="topic-results"></div><p class="sub">A small classifier runs on this device. Check its topic suggestions against the source.</p></details>';
     if(!brief)return '<div class="brief-content"><p class="sub">Inspect the source messages or find related sentences by topic.</p>'+(live?'<button class="secondary" id="generate">Generate a live brief</button>':'')+local+'</div>';
     const handoff=P.can(role(),'request') && state(id).phase==='unopened'
